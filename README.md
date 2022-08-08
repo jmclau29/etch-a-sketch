@@ -1,0 +1,1 @@
+This is a project to create an Etch-a-Sketch game for The Odin Project.
