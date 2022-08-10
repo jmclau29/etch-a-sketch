@@ -1,17 +1,39 @@
-//make divs for grid and attach to containerDiv
-for (i = 1; i < 257; i++) {
-    const squareDiv = document.createElement('div');
-    squareDiv.setAttribute('class', 'gridSquare');
-    squareDiv.setAttribute('id', `square${i}`);
-    containerDiv.appendChild(squareDiv);
+function makeGrid(cellsPerSide) {
+    let totalCells = cellsPerSide ** 2;
+
+    for (let i = 0; i < totalCells; i++) {
+        const squareDiv = document.createElement('div');
+        squareDiv.setAttribute('class', 'square');
+        containerDiv.appendChild(squareDiv);
+        let squareHeight = 512 / cellsPerSide;
+        let squareWidth = 512 / cellsPerSide;
+        squareDiv.setAttribute('style', `height: ${squareWidth}px; width: ${squareHeight}px;`);
+    }
+    //etch-a-sketch functionality: change background color when moused over
+    const squares = document.querySelectorAll('.square');
+
+    squares.forEach((square) => {
+
+        square.addEventListener('mouseover', () => {
+            square.classList.add('coloredSquare');
+        });
+    });
 }
 
+function deleteGrid() {
+    const squares = document.querySelectorAll('.square');
 
-const squares = document.querySelectorAll('.gridSquare');
+    squares.forEach((square) => {
+        square.remove();
+    })
+}
 
-squares.forEach((square) => {
+makeGrid(16);
 
-    square.addEventListener('mouseover', () => {
-        square.style.cssText = "background-color: black;"; 
-    });
+const changeButton = document.querySelector('button');
+changeButton.addEventListener('click', function () {
+    let gridSize = prompt('How big do you want your grid to be?', '16');
+    deleteGrid();
+    makeGrid(gridSize);
 });
+
