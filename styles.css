@@ -1,15 +1,54 @@
 html, body {
     height: 100%;
+    background-color: rgb(231, 224, 224);
 }
 
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     margin: 0;
 }
 
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: stretch;
+    align-items: baseline;
+    padding: 20px 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+}
+
+#sideBar {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0px;
+    width: 400px;
+    padding: 45px;
+    align-items: center;
+    text-align: left;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 24px;
+}
+
+#change {
+    margin: 20px 10px;
+    width: fit-content;
+    justify-content: center;
+    font-size: 16px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: auto;
+}
 
 #containerDiv  {
     display: flex;
@@ -17,14 +56,25 @@ body {
     flex-wrap: wrap;
     height: 512px;
     width: 512px;
+    box-shadow: 0 0 0 1px black;
+    background: white;
 }
 
 .square {
-    border: 0.5px solid black;
     display: flex;
     box-sizing: border-box;
 }
 
 .coloredSquare {
     background-color: black;
+}
+
+footer {
+    background-color: gray;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    padding: 10px 10px;
+    align-self: stretch;
+    text-align: center;
 }

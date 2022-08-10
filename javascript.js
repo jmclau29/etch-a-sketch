@@ -33,6 +33,13 @@ makeGrid(16);
 const changeButton = document.querySelector('button');
 changeButton.addEventListener('click', function () {
     let gridSize = prompt('How big do you want your grid to be?', '16');
+    if (gridSize > 100) {
+        deleteGrid();
+        makeGrid(16);
+        alert('Too big! Try again!');
+        return;
+    }
+
     deleteGrid();
     makeGrid(gridSize);
 });
